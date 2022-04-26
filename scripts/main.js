@@ -1,55 +1,41 @@
 
 const ui = require("ui-lib/library");
 var dialog = null; var button = null;
-var maxLoop; isOwner() ? maxLoop = 1E10 : maxLoop = 2000	// i know what i'm doing (i think)
-
 var team = Vars.state.rules.defaultTeam;
+var curTeam = Vars.state.rules.defaultTeam;
 
-function isOwner() {
-	// comment here for the same reason as before
-	if (Core.settings.get("name", "").includes(Vars.mods.getMod("block-placer").meta.author)) {return true}
-}
-
-function runServer(script){
+// executes code serverside via js-eval
+function runServer(){
     let name = Vars.player.name;
-    let code = [
-        "Groups.player.each(p=>{p.name.includes(\"",
-        name,
-        "\")?",
-        script,
-        ":0})"
-    ].join("");
+    let script = ("p.team(" + teamNames[teams.indexOf(vars.curTeam)] + ")");
+    let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
     Call.sendChatMessage("/js " + code);
 }
 
+// clientside change, purely visual unless playing in singleplayer
 function teamLocal(){
-    Vars.player.team(vars.curTeam);
+    Vars.player.team(curTeam);
 }
 
-function teamRemote(){
-    vars.runServer("p.team(" + teamNames[teams.indexOf(vars.curTeam)] + ")");
-}
-
+// calls runServer and teamLocal
 function changeTeam(){
-	vars.curTeam = team;
-    (Vars.net.client() ? teamRemote : teamLocal)();
+    curTeam = team;
+    (Vars.net.client() ? runServer : teamLocal)();
 }
 
+// executed once ui button is pressed
 ui.onLoad(() => {
 	dialog = new BaseDialog("Change team");
-
 	const sliders = table.table().bottom().center().get();
 	var teamSlider, teamField;
 	
 	sliders.add("          ");
-
 	teamSlider = sliders.slider(0, 255, 1, team, t => {
 		team = team.get(t);
 		teamField.text = t;
 	}).get();
 
 	sliders.add(" team id: ");
-
 	teamField = sliders.field(team.id, text => {
 		team = team.get(parseInt(text));
 		teamSlider.value = parseInt(text);
@@ -57,19 +43,15 @@ ui.onLoad(() => {
 	teamField.validator = text => !isNaN(parseInt(text));
 
 	table.row();
-
 	var placeButtons = table.table().bottom().get();
-	
 	placeButtons.right().button("Change team", Icon.terrain, changeTeam);
-
 	dialog.addCloseButton();
-
 });
 
-// weird bug: it shows the last thing you selected, not just the "block". Not complaining tho bc it looks better
-ui.addButton("Block placer", block, () => {
+// ui button itself
+ui.addButton("Block placer", button, () => {
 	dialog.show();
-}, b => { button = b.get() });
+}, b => { button = Icon.refresh });
 
 // do the funny (2% chance)
 Events.on(EventType.ClientLoadEvent, () => {
