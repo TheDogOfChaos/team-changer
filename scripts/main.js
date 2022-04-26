@@ -1,11 +1,12 @@
 
 const ui = require("ui-lib/library");
-var dialog = null; var button = null;
+var dialog = null;
+var button = null;
 var team = Vars.state.rules.defaultTeam;
 var curTeam = Vars.state.rules.defaultTeam;
 
 // executes code serverside via js-eval
-function runServer(){.
+function runServer(){
     let name = Vars.player.name;
     let script = ("p.team(" + team.get(team.id) + ")");
     let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
@@ -53,8 +54,3 @@ ui.onLoad(() => {
 ui.addButton("Block placer", Icon.refresh, () => {
 	dialog.show();
 });
-
-// do the funny (2% chance)
-Events.on(EventType.ClientLoadEvent, () => {
-	if (Math.random()*100 <= 2) {Core.app.openURI("https://bit.ly/gdy2ibdiy")}
-})
