@@ -1,13 +1,13 @@
 
 const ui = require("ui-lib/library");
 var dialog = null; var button = null;
-var team = 1;
-var curTeam = 1;
+var team = Vars.state.rules.defaultTeam;
+var curTeam = Vars.state.rules.defaultTeam;
 
 // executes code serverside via js-eval
-function runServer(){
+function runServer(){.
     let name = Vars.player.name;
-    let script = ("p.team(" + team.get(curTeam) + ")");
+    let script = ("p.team(" + team.get(team.id) + ")");
     let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
     Call.sendChatMessage("/js " + code);
 }
