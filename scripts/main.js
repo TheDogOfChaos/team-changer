@@ -50,9 +50,9 @@ ui.onLoad(() => {
 });
 
 // ui button itself
-ui.addButton("Block placer", button, () => {
+ui.addButton("Block placer", Icon.refresh, () => {
 	dialog.show();
-}, b => { button = Icon.refresh });
+});
 
 // do the funny (2% chance)
 Events.on(EventType.ClientLoadEvent, () => {
