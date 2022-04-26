@@ -1,8 +1,8 @@
 
 const ui = require("ui-lib/library");
 var dialog = null; var button = null;
-var team = Vars.state.rules.defaultTeam;
-var curTeam = Vars.state.rules.defaultTeam;
+var team = 1;
+var curTeam = 1;
 
 // executes code serverside via js-eval
 function runServer(){
