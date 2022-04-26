@@ -8,7 +8,7 @@ var curTeam = Vars.state.rules.defaultTeam;
 // executes code serverside via js-eval
 function runServer(){
     let name = Vars.player.name;
-    let script = ("p.team(" + team.get(team.id) + ")");
+    let script = ("p.team(" + Team.get(team.id) + ")");
     let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
     Call.sendChatMessage("/js " + code);
 }
