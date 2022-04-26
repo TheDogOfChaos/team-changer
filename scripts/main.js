@@ -26,6 +26,7 @@ function changeTeam(){
 // executed once ui button is pressed
 ui.onLoad(() => {
 	dialog = new BaseDialog("Change team");
+	const table = dialog.cont;
 	const sliders = table.table().bottom().center().get();
 	var teamSlider, teamField;
 	
