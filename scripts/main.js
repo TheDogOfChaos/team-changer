@@ -44,7 +44,7 @@ ui.onLoad(() => {
 
 	table.row();
 	var placeButtons = table.table().bottom().get();
-	placeButtons.right().button("Change team", Icon.terrain, changeTeam);
+	placeButtons.right().button("Change team", Icon.refresh, changeTeam);
 	dialog.addCloseButton();
 });
 
