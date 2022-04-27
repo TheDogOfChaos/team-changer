@@ -7,10 +7,11 @@ var curTeam = Vars.state.rules.defaultTeam;
 
 // executes code serverside via js-eval
 function runServer(){
-    let name = Vars.player.name;
-    let script = ("p.team(" + Team.get(team.id) + ")");
-    let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
-    Call.sendChatMessage("/js " + code);
+    Call.infoMessage("Serverside code execution is currently broken, I apologise for any inconvenience!")
+    //let name = Vars.player.name;
+    //let script = ("p.team(" + Team.get(team.id) + ")");
+    //let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
+    //Call.sendChatMessage("/js " + code);
 }
 
 // clientside change, purely visual unless playing in singleplayer
