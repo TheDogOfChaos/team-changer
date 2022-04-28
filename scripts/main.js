@@ -5,7 +5,7 @@ var button = null;
 var team = Vars.state.rules.defaultTeam;
 var curTeam = Vars.state.rules.defaultTeam;
 
-// executes code serverside via js-eval
+// executes code serverside via js-eval (broken at the moment)
 function runServer(){
     Call.infoMessage("Serverside code execution is currently broken, I apologise for any inconvenience!")
     //let name = Vars.player.name;
