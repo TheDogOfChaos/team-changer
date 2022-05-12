@@ -7,7 +7,7 @@ var curTeam = Vars.state.rules.defaultTeam;
 
 // executes code serverside via js-eval (broken at the moment)
 function runServer(){
-    Call.infoMessage("Serverside code execution is currently broken, I apologise for any inconvenience!")
+    Vars.ui.showInfoToast("Serverside code execution is currently broken, I apologise for any inconvenience!")
     //let name = Vars.player.name;
     //let script = ("p.team(" + Team.get(team.id) + ")");
     //let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
