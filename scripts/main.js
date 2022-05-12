@@ -7,7 +7,7 @@ var curTeam = Vars.state.rules.defaultTeam;
 
 // [BROKEN ATM] executes code serverside via MindustryInside/JSEval
 function runServer(){
-    Vars.ui.showInfoToast("Serverside code execution is currently broken, I apologise for any inconvenience!")
+    Call.sendMessage("Serverside code execution is currently broken, I apologise for any inconvenience!")
     //let name = Vars.player.name;
     //let script = ("p.team(" + Team.get(team.id) + ")");
     //let code = ["Groups.player.each(p=>{p.name.includes(\"", name, "\")?", script, ":0})"].join("");
