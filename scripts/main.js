@@ -52,6 +52,6 @@ ui.onLoad(() => {
 });
 
 // ui button itself
-ui.addButton("Block placer", "refresh", () => {
+ui.addButton("Team Changer", "refresh", () => {
 	dialog.show();
 });
