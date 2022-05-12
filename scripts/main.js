@@ -5,7 +5,7 @@ var button = null;
 var team = Vars.state.rules.defaultTeam;
 var curTeam = Vars.state.rules.defaultTeam;
 
-// executes code serverside via js-eval (broken at the moment)
+// [BROKEN ATM] executes code serverside via MindustryInside/JSEval
 function runServer(){
     Vars.ui.showInfoToast("Serverside code execution is currently broken, I apologise for any inconvenience!")
     //let name = Vars.player.name;
