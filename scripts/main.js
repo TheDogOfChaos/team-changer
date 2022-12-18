@@ -1,5 +1,5 @@
 
-const ui = require("ui-lib/library");
+const ui = require("ui-lib-noBL/library");
 var dialog = null;
 var button = null;
 var team = Vars.state.rules.defaultTeam;
