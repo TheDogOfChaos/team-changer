@@ -3,7 +3,7 @@
   "author": "[#00ff00]Littlecat456",
   "displayName": "[green]Team Changer",
   "description": "Mindustry mod that allows you to change your team to any of the 256 available teams",
-  "dependencies": [ "ui-lib" ],
+  "dependencies": [ "ui-lib-noBL" ],
   "version": "1.0",
   "hidden": true,
   "minGameVersion": 105
